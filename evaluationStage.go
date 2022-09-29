@@ -428,6 +428,11 @@ func inStage(left interface{}, right interface{}, parameters Parameters) (interf
 	return false, nil
 }
 
+func notInStage(left interface{}, right interface{}, parameters Parameters) (interface{}, error) {
+	inStage, _ := inStage(left, right, parameters)
+	return !inStage.(bool), nil
+}
+
 //
 
 func isString(value interface{}) bool {

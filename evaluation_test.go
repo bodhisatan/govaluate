@@ -507,6 +507,24 @@ func TestNoParameterEvaluation(test *testing.T) {
 		},
 		EvaluationTest{
 
+			Name:     "Array membership literals (notin)",
+			Input:    "1 notin (1, 2, 3)",
+			Expected: false,
+		},
+		EvaluationTest{
+
+			Name:     "Array membership literals (notin#2)",
+			Input:    "4 notin (1, 2, 3)",
+			Expected: true,
+		},
+		EvaluationTest{
+
+			Name:     "Array membership literals with inversion (notin#2)",
+			Input:    "!(4 notin (1, 2, 3))",
+			Expected: false,
+		},
+		EvaluationTest{
+
 			Name:     "Logical operator reordering (#30)",
 			Input:    "(true && true) || (true && false)",
 			Expected: true,
@@ -710,7 +728,7 @@ func TestNoParameterEvaluation(test *testing.T) {
 			Expected: true,
 		},
 		EvaluationTest{
-			
+
 			Name:  "Ternary/Java EL ambiguity",
 			Input: "false ? foo:length()",
 			Functions: map[string]ExpressionFunction{

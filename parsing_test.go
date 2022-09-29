@@ -941,6 +941,70 @@ func TestComparatorParsing(test *testing.T) {
 				},
 			},
 		},
+		TokenParsingTest{
+
+			Name:  "Array membership lowercase (not in)",
+			Input: "'foo' notin ('foo', 'bar')",
+			Expected: []ExpressionToken{
+				ExpressionToken{
+					Kind:  STRING,
+					Value: "foo",
+				},
+				ExpressionToken{
+					Kind:  COMPARATOR,
+					Value: "notin",
+				},
+				ExpressionToken{
+					Kind: CLAUSE,
+				},
+				ExpressionToken{
+					Kind:  STRING,
+					Value: "foo",
+				},
+				ExpressionToken{
+					Kind: SEPARATOR,
+				},
+				ExpressionToken{
+					Kind:  STRING,
+					Value: "bar",
+				},
+				ExpressionToken{
+					Kind: CLAUSE_CLOSE,
+				},
+			},
+		},
+		TokenParsingTest{
+
+			Name:  "Array membership uppercase (not in)",
+			Input: "'foo' NOTIN ('foo', 'bar')",
+			Expected: []ExpressionToken{
+				ExpressionToken{
+					Kind:  STRING,
+					Value: "foo",
+				},
+				ExpressionToken{
+					Kind:  COMPARATOR,
+					Value: "notin",
+				},
+				ExpressionToken{
+					Kind: CLAUSE,
+				},
+				ExpressionToken{
+					Kind:  STRING,
+					Value: "foo",
+				},
+				ExpressionToken{
+					Kind: SEPARATOR,
+				},
+				ExpressionToken{
+					Kind:  STRING,
+					Value: "bar",
+				},
+				ExpressionToken{
+					Kind: CLAUSE_CLOSE,
+				},
+			},
+		},
 	}
 
 	tokenParsingTests = combineWhitespaceExpressions(tokenParsingTests)
