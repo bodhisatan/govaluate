@@ -126,7 +126,18 @@ Again, this should always be used with parenthesis; like `(1, 2, 3, 4)`.
 
 ### Membership `IN`
 
-The only operator with a text name, this operator checks the right-hand side array to see if it contains a value that is equal to the left-side value.
+This operator checks the right-hand side array to see if it contains a value that is equal to the left-side value.
+Equality is determined by the use of the `==` operator, and this library doesn't check types between the values. Any two values, when cast to `interface{}`, and can still be checked for equality with `==` will act as expected.
+
+Note that you can use a parameter for the array, but it must be an `[]interface{}`.
+
+* _Left side_: Any type.
+* _Right side_: array
+* _Returns_: bool
+
+### Membership `NOTIN`
+
+This operator checks the right-hand side array to see if it doesn't contain a value that is equal to the left-side value.
 Equality is determined by the use of the `==` operator, and this library doesn't check types between the values. Any two values, when cast to `interface{}`, and can still be checked for equality with `==` will act as expected.
 
 Note that you can use a parameter for the array, but it must be an `[]interface{}`.
