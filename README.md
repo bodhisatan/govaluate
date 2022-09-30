@@ -189,14 +189,14 @@ What operators and types does this support?
 * Ternary conditional: `?` `:`
 * Null coalescence: `??`
 
-See [MANUAL.md](https://github.com/Knetic/govaluate/blob/master/MANUAL.md) for exacting details on what types each operator supports.
+See [MANUAL.md](https://github.com/bodhisatan/govaluate/blob/master/MANUAL.md) for exacting details on what types each operator supports.
 
 Types
 --
 
 Some operators don't make sense when used with some types. For instance, what does it mean to get the modulo of a string? What happens if you check to see if two numbers are logically AND'ed together?
 
-Everyone has a different intuition about the answers to these questions. To prevent confusion, this library will _refuse to operate_ upon types for which there is not an unambiguous meaning for the operation. See [MANUAL.md](https://github.com/Knetic/govaluate/blob/master/MANUAL.md) for details about what operators are valid for which types.
+Everyone has a different intuition about the answers to these questions. To prevent confusion, this library will _refuse to operate_ upon types for which there is not an unambiguous meaning for the operation. See [MANUAL.md](https://github.com/bodhisatan/govaluate/blob/master/MANUAL.md) for details about what operators are valid for which types.
 
 Benchmarks
 --
